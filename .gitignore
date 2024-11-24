@@ -1,0 +1,25 @@
+# Jupyter-related directories
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.local/share/jupyter/
+
+# scikit-learn data
+scikit_learn_data/
+
+# Node.js-related directories
+.npm/
+
+# Python-related files
+.cache/
+*.pyc
+__pycache__/
+*.log
+*.tmp
+*.swp
+
+venv/
+.env
+.local/
+.bash_history
+.openvscode-server/

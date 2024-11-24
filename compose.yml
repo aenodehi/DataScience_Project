@@ -1,0 +1,38 @@
+services:
+  vscode:
+    build:
+      context: .
+      dockerfile: Dockerfile  
+    container_name: vscode_gitpod
+    ports:
+      - "3000:3000"  
+      - "8000:8000"  
+    volumes:
+      - .:/home/workspace
+      - ./mlflow:/mlflow  
+    environment:
+      - PASSWORD=1  
+    networks:
+      - mlflow-network
+    restart: always
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow  
+    container_name: mlflow_gitpod
+    ports:
+      - "5000:5000"  
+    environment:
+      - MLFLOW_BACKEND_STORE_URI=sqlite:///mlflow.db
+      - MLFLOW_DEFAULT_ARTIFACT_ROOT=file:/mlflow/artifacts
+    volumes:
+      - ./mlflow:/mlflow
+    networks:
+      - mlflow-network
+    restart: always
+
+networks:
+  mlflow-network:
+    driver: bridge
+
