@@ -8,7 +8,7 @@
 4. Model Trainer
 5. Model Evaluation- MLFLOW,Dagshub
 
-## Workflows
+## Workflows for each item above
 
 1. Update config.yaml
 2. Update schema.yaml
